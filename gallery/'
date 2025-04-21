@@ -1,0 +1,157 @@
+import { Page, View, Text, Image } from '@react-pdf/renderer';
+import { createTw } from 'react-pdf-tailwind';
+
+// Initialize Tailwind for react-pdf
+const tw = createTw({
+  theme: {
+    fontFamily: {
+      sans: ['Helvetica', 'Arial', 'sans-serif'],
+    },
+    extend: {
+      colors: {
+        primary: '#1a365d',
+        secondary: '#2d3748',
+        accent: '#3182ce',
+        light: '#e2e8f0',
+        muted: '#718096',
+        white: '#ffffff',
+        black: '#000000',
+        gray: '#a0aec0',
+        lightGray: '#edf2f7',
+      },
+    },
+  },
+});
+
+// Type definitions
+export interface Product {
+  name: string;
+  description: string;
+  image?: string;
+}
+
+export interface CompanyInfo {
+  name: string;
+  logo?: string;
+  yearEstablished?: string;
+}
+
+export const ProductPage = ({
+  product,
+  companyInfo,
+  pageNumber,
+}: {
+  product: Product;
+  companyInfo: CompanyInfo;
+  pageNumber: number;
+}) => {
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  const currentYear = new Date().getFullYear();
+  const companyLogo = companyInfo.logo || 'https://picsum.photos/200/80';
+  const productImage = product.image || 'https://picsum.photos/300/300';
+
+  return (
+    <Page
+      size="A4"
+      style={tw(
+        'p-10 bg-gradient-to-br from-primary via-secondary to-gray relative'
+      )}
+    >
+      {/* Decorative Background Texture */}
+      <View
+        style={tw(
+          'absolute top-0 left-0 w-full h-full bg-white bg-opacity-10 rounded-lg'
+        )}
+      />
+
+      {/* Header */}
+      <View
+        style={tw(
+          'flex flex-row justify-between items-center mb-10 p-4 bg-gradient-to-r from-white to-lightGray bg-opacity-95 rounded-xl shadow-2xl border-2 border-accent'
+        )}
+      >
+        <Image src={companyLogo} style={tw('w-[120px] h-[40px] object-contain')} />
+        <Text style={tw('text-xs text-muted font-semibold tracking-wide')}>
+          Premium Product Catalogue • {currentDate}
+        </Text>
+      </View>
+
+      {/* Decorative Divider */}
+      <View
+        style={tw(
+          'w-1/2 mx-auto h-1 bg-gradient-to-r from-accent to-primary rounded-full mb-8'
+        )}
+      />
+
+      <View style={tw('flex-1 mb-10')}>
+        {/* Product Image */}
+        <View
+          style={tw(
+            'flex items-center mb-10 p-6 bg-white bg-opacity-90 rounded-2xl shadow-2xl border-4 border-double border-accent relative'
+          )}
+        >
+          {/* Glow Effect */}
+          <View
+            style={tw(
+              'absolute inset-0 rounded-2xl bg-accent bg-opacity-20 blur-md'
+            )}
+          />
+          <Image
+            src={productImage}
+            style={tw(
+              'w-[300px] h-[300px] object-cover rounded-lg transform rotate-2'
+            )}
+          />
+        </View>
+
+        {/* Product Header */}
+        <View style={tw('mt-8 mb-6 flex items-center text-center')}>
+          <Text
+            style={tw(
+              'text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-accent via-primary to-secondary tracking-wider mb-4 shadow-lg'
+            )}
+          >
+            {product.name}
+          </Text>
+          <View
+            style={tw(
+              'bg-white bg-opacity-85 p-8 rounded-2xl shadow-xl max-w-[500px] mx-auto border-t-2 border-b-2 border-accent'
+            )}
+          >
+            <Text
+              style={tw(
+                'text-lg text-secondary leading-loose font-light text-center'
+              )}
+            >
+              {product.description}
+            </Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Decorative Divider */}
+      <View
+        style={tw(
+          'w-1/2 mx-auto h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8'
+        )}
+      />
+
+      {/* Footer */}
+      <View
+        style={tw(
+          'flex flex-row justify-between items-center mt-auto pt-4 bg-gradient-to-r from-white to-lightGray bg-opacity-95 rounded-t-xl shadow-lg border-t-4 border-accent'
+        )}
+        fixed
+      >
+        <Text style={tw('text-[8px] text-muted font-semibold tracking-wide')}>
+          © {currentYear} {companyInfo.name} • All Rights Reserved
+        </Text>
+        <Image src={companyLogo} style={tw('w-[60px] h-[20px] object-contain')} />
+      </View>
+      <Text
+        style={tw(
+          'absolute bottom-6
