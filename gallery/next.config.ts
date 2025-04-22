@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -7,6 +6,11 @@ const nextConfig = {
         hostname: 'picsum.photos',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ypafaxfcutwjamwcaclp.supabase.co',
+        pathname: '/storage/v1/object/public/**',
       },
     ],
   },

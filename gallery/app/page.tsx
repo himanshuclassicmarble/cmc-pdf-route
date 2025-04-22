@@ -49,12 +49,15 @@ export default function Home() {
             onClick={() => toggleProduct(product)}
           >
             <div className="relative h-48">
-              <Image 
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover"
-              />
+<Image
+  src={product.image}
+  alt={product.name}
+  fill
+  className="object-cover"
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                unoptimized={true}
+  quality={75}
+/>
             </div>
             <div className="p-4">
               <h3 className="font-semibold text-lg">{product.name}</h3>

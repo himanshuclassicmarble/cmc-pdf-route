@@ -1,23 +1,27 @@
 'use client';
-
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Download } from 'lucide-react';
+import { Download, Loader2 } from 'lucide-react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import CataloguePDF from '@/components/CataloguePDF';
 import { Product, CompanyInfo } from '@/app/types/catalogue';
+import { Progress } from '@/components/ui/progress';
 
 export default function PdfRoutePage() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [imageProcessingStatus, setImageProcessingStatus] = useState({
+    loading: false,
+    progress: 0
+  });
+  
   // Sample company info - in a real app, this could come from an API or config
   const companyInfo: CompanyInfo = {
     name: 'Classic Marble Company',
-    logo: '/api/placeholder/200/100',
+    logo: '/image/company/CMC-Logo-1-1.png',
     description: 'Premium supplier of high-quality marble and stone products.',
     contact: {
       email: 'contact@classicmarble.com',
@@ -25,7 +29,7 @@ export default function PdfRoutePage() {
       address: '123 Stone Ave, Marble City, MC 12345',
     },
   };
-
+  
   useEffect(() => {
     const productsParam = searchParams.get('products');
     if (productsParam) {
@@ -39,10 +43,22 @@ export default function PdfRoutePage() {
     setIsLoading(false);
   }, [searchParams]);
 
+  // Handle image processing status changes
+  const handleLoadingChange = (loading: boolean, progress: number = 0) => {
+    setImageProcessingStatus({
+      loading: loading,
+      progress: progress
+    });
+  };
+  
   if (isLoading) {
-    return <div className="max-w-6xl mx-auto p-6">Loading...</div>;
+    return (
+      <div className="max-w-6xl mx-auto p-6 flex items-center justify-center min-h-[50vh]">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
-
+  
   if (products.length === 0) {
     return (
       <div className="max-w-6xl mx-auto p-6">
@@ -57,7 +73,7 @@ export default function PdfRoutePage() {
       </div>
     );
   }
-
+  
   return (
     <div className="max-w-6xl mx-auto p-6">
       <Card className="max-w-md mx-auto">
@@ -72,14 +88,42 @@ export default function PdfRoutePage() {
             Your catalogue contains {products.length} selected product
             {products.length > 1 ? 's' : ''}.
           </p>
+          
+          {/* Show progress bar when processing images */}
+          {imageProcessingStatus.loading && (
+            <div className="mb-4">
+              <Progress value={imageProcessingStatus.progress} className="h-2 mb-2" />
+              <p className="text-xs text-gray-500 text-center">
+                Processing images: {imageProcessingStatus.progress}%
+              </p>
+            </div>
+          )}
+          
+          {/* PDFDownloadLink stays the same, but we pass our loading handler to CataloguePDF */}
           <PDFDownloadLink
-            document={<CataloguePDF products={products} companyInfo={companyInfo} />}
+            document={
+              <CataloguePDF 
+                products={products} 
+                companyInfo={companyInfo} 
+                onLoadingChange={handleLoadingChange} 
+              />
+            }
             fileName="classic-marble-catalogue.pdf"
             className="inline-block"
           >
             {({ loading }) => (
-              <Button disabled={loading} className="w-full">
-                {loading ? 'Generating PDF...' : 'Download PDF Catalogue'}
+              <Button 
+                disabled={loading || imageProcessingStatus.loading} 
+                className="w-full"
+              >
+                {loading || imageProcessingStatus.loading ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    {loading ? 'Generating PDF...' : 'Processing Images...'}
+                  </span>
+                ) : (
+                  'Download PDF Catalogue'
+                )}
               </Button>
             )}
           </PDFDownloadLink>
