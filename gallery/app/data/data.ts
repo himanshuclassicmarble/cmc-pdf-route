@@ -13,28 +13,10 @@ export const sampleProducts: Product[] = [
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02372.webp',
   },
   {
-    id: 'lot:LO02796',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 123 x 76 inches, 4927 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02796.webp',
-  },
-  {
-    id: 'lot:LO02183',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 116 x 73 inches, 4822 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02183.webp',
-  },
-  {
     id: 'lot:LO02376',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 114 x 63 inches, 4774 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02376.webp',
-  },
-  {
-    id: 'lot:LO02794',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 115 x 67 inches, 4766 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02794.webp',
   },
   {
     id: 'lot:LO02806',
@@ -43,58 +25,10 @@ export const sampleProducts: Product[] = [
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02806.webp',
   },
   {
-    id: 'lot:LO02751',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 104 x 69 inches, 4642 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02751.webp',
-  },
-  {
     id: 'lot:LO02377',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 114 x 72 inches, 4471 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02377.webp',
-  },
-  {
-    id: 'lot:LO02795',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 102 x 76 inches, 4375 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02795.webp',
-  },
-  {
-    id: 'lot:LO02804',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 114 x 72 inches, 4289 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02804.webp',
-  },
-  {
-    id: 'lot:LO02799',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 99 x 74 inches, 4260 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02799.webp',
-  },
-  {
-    id: 'lot:LO02800',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 115 x 69 inches, 4187 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02800.webp',
-  },
-  {
-    id: 'lot:LO02801',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 103 x 78 inches, 3724 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02801.webp',
-  },
-  {
-    id: 'lot:LO02410',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 120 x 63 inches, 3194 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02410.webp',
-  },
-  {
-    id: 'lot:LO02400',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 106 x 65 inches, 3118 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02400.webp',
   },
   {
     id: 'lot:LO02386',
@@ -127,12 +61,6 @@ export const sampleProducts: Product[] = [
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02382.webp',
   },
   {
-    id: 'lot:LO02186',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 76 x 74 inches, 2331 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02186.webp',
-  },
-  {
     id: 'lot:LO00279',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 78 x 70 inches, 2060 units.',
@@ -161,12 +89,6 @@ export const sampleProducts: Product[] = [
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 87 x 65 inches, 1681 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO00286.webp',
-  },
-  {
-    id: 'lot:LO02391',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 109 x 63 inches, 1612 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02391.webp',
   },
   {
     id: 'lot:LO01033',
@@ -295,12 +217,6 @@ export const sampleProducts: Product[] = [
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN01472.webp',
   },
   {
-    id: 'lot:LO01437',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 105 x 77 inches, 670 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01437.webp',
-  },
-  {
     id: 'lot:LO01028',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 107 x 68 inches, 658 units.',
@@ -361,40 +277,10 @@ export const sampleProducts: Product[] = [
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LM01892.webp',
   },
   {
-    id: 'lot:LL01085',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 59 x 22 inches, 346 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LL01085.webp',
-  },
-  {
     id: 'lot:LO02175',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 101 x 72 inches, 337 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02175.webp',
-  },
-  {
-    id: 'lot:LO02107',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 82 x 67 inches, 306 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02107.webp',
-  },
-  {
-    id: 'lot:LO02750',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 111 x 58 inches, 267 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02750.webp',
-  },
-  {
-    id: 'lot:LO02749',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 89 x 68 inches, 250 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02749.webp',
-  },
-  {
-    id: 'lot:LO02412',
-    name: ' Ascending',
-    description: 'Elegant beige marble with subtle veining, 102 x 63 inches, 209 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02412.webp'
   },
   {
     id: 'lot:LO01057B',
@@ -419,12 +305,6 @@ export const sampleProducts: Product[] = [
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 0 x 0 inches, 166 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02406.webp'
-  },
-  {
-    id: 'lot:LO02417',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 86 x 55 inches, 163 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02417.webp'
   },
   {
     id: 'lot:LN01435',
@@ -457,40 +337,10 @@ export const sampleProducts: Product[] = [
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01462.webp'
   },
   {
-    id: 'lot:LO02375',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 117 x 62 inches, 100 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02375.webp'
-  },
-  {
     id: 'lot:LO02390',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 0 x 0 inches, 92 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02390.webp'
-  },
-  {
-    id: 'lot:LE01640',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 60 x 18 inches, 90 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LE01640.webp'
-  },
-  {
-    id: 'lot:LM02727',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 95 x 61 inches, 81 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LM02727.webp'
-  },
-  {
-    id: 'lot:LE01440',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 90 x 14 inches, 71 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LE01440.webp'
-  },
-  {
-    id: 'lot:LO01953',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 78 x 59 inches, 64 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01953.webp'
   },
   {
     id: 'lot:LO01443',
@@ -547,34 +397,16 @@ export const sampleProducts: Product[] = [
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LM02348B.webp'
   },
   {
-    id: 'lot:LO02409',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 99 x 62 inches, 43 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02409.webp'
-  },
-  {
     id: 'lot:LN02600',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 92 x 67 inches, 42 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN02600.webp'
   },
   {
-    id: 'lot:LO01986',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 83 x 74 inches, 42 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01986.webp'
-  },
-  {
     id: 'lot:LO01465',
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 92 x 65 inches, 41 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01465.webp'
-  },
-  {
-    id: 'lot:LO02408A',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 113 x 51 inches, 40 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO02408A.webp'
   },
   {
     id: 'lot:LO00272',
@@ -587,113 +419,5 @@ export const sampleProducts: Product[] = [
     name: 'Crema Bellisimo Beige',
     description: 'Elegant beige marble with subtle veining, 109 x 79 inches, 37 units.',
     image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO00275.webp'
-  },
-  {
-    id: 'lot:LL02925',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 98 x 51 inches, 35 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LL02925.webp'
-  },
-  {
-    id: 'lot:LN03170',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 81 x 61 inches, 35 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN03170.webp'
-  },
-  {
-    id: 'lot:LN00958',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 71 x 63 inches, 31 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN00958.webp'
-  },
-  {
-    id: 'lot:LN00759',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 98 x 43 inches, 30 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN00759.webp'
-  },
-  {
-    id: 'lot:LL02537',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 69 x 59 inches, 28 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LL02537.webp'
-  },
-  {
-    id: 'lot:LO01453',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 65 x 55 inches, 25 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01453.webp'
-  },
-  {
-    id: 'lot:LH60130',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 70 x 50 inches, 24 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LH60130.webp'
-  },
-  {
-    id: 'lot:LM02723',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 39 x 31 inches, 17 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LM02723.webp'
-  },
-  {
-    id: 'lot:LN00307',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 59 x 39 inches, 16 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN00307.webp'
-  },
-  {
-    id: 'lot:LM01919',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 59 x 35 inches, 15 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LM01919.webp'
-  },
-  {
-    id: 'lot:LO01039',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 59 x 35 inches, 15 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01039.webp'
-  },
-  {
-    id: 'lot:LL00482',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 79 x 24 inches, 13 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LL00482.webp'
-  },
-  {
-    id: 'lot:LG61602B',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 50 x 32 inches, 11 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LG61602B.webp'
-  },
-  {
-    id: 'lot:LM02513',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 39 x 39 inches, 11 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LM02513.webp'
-  },
-  {
-    id: 'lot:LN01044',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 39 x 39 inches, 11 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN01044.webp'
-  },
-  {
-    id: 'lot:LN01056',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 39 x 39 inches, 11 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN01056.webp'
-  },
-  {
-    id: 'lot:LN01461',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 39 x 39 inches, 11 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LN01461.webp'
-  },
-  {
-    id: 'lot:LO01431',
-    name: 'Crema Bellisimo Beige',
-    description: 'Elegant beige marble with subtle veining, 39 x 35 inches, 11 units.',
-    image: 'https://ypafaxfcutwjamwcaclp.supabase.co/storage/v1/object/public/natural-public/webp-crop-new/LO01431.webp'
   }
 ];

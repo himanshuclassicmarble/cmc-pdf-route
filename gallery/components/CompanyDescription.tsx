@@ -34,12 +34,43 @@ const styles = StyleSheet.create({
   },
   watermark: {
     position: "absolute",
-    fontSize: 50, // Smaller watermark
+    fontSize: 80,
     color: "#D4A017",
-    opacity: 0.08, // Less opacity
+    opacity: 0.04,
     transform: "rotate(-45deg)",
-    left: "30%",
-    top: "45%",
+    left: "25%",
+    top: "40%",
+  },
+  imageFrame: {
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
+    borderRadius: 4,
+    padding: 4,
+    backgroundColor: '#FFFFFF',
+  },
+  directorImageFrame: {
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
+    borderRadius: 4,
+    padding: 3,
+    backgroundColor: '#FFFFFF',
+  },
+  statsBox: {
+    padding: 16,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  achievementBox: {
+    padding: 16,
+    backgroundColor: '#FEF7E9',
+    borderRadius: 6,
+    borderLeftWidth: 3,
+    borderLeftColor: '#D4A017',
+    borderLeftStyle: 'solid',
   },
 })
 
@@ -85,7 +116,7 @@ export const CompanyDescriptionPage = () => {
         <View style={tw("flex flex-row justify-between items-center mb-8")}>
           <View style={tw("flex flex-row items-center")}>
             <Image 
-              src={companyLogo} 
+              src={companyLogo || "/placeholder.svg"} 
               style={tw("w-32 h-12 object-contain")} 
             />
           </View>
@@ -115,7 +146,9 @@ export const CompanyDescriptionPage = () => {
         <View style={tw("flex flex-row mb-6")}>
           {/* Left column with company image */}
           <View style={tw("w-1/2 pr-4")}>
-            <Image src={companyImage} style={tw("h-40 w-full object-cover rounded shadow")} />
+            <View style={styles.imageFrame}>
+              <Image src={companyImage || "/placeholder.svg"} style={tw("h-40 w-full object-cover rounded")} />
+            </View>
           </View>
           
           {/* Right column with company description */}
@@ -133,12 +166,14 @@ export const CompanyDescriptionPage = () => {
           <Text style={tw("text-lg font-bold text-gray-900 uppercase tracking-wide")}>
             Leadership
           </Text>
-          <View style={tw("w-10 h-0.5 bg-amber-500 mt-1")} />
+          <View style={tw("w-10 h-0.5 bg-amber-500 mt-1 mb-4")} />
         </View>
         
-        <View style={tw("flex flex-row mb-6")}>
-          <Image src={directorImage} style={tw("w-24 h-32 object-cover mr-4 rounded")} />
-          <View style={tw("flex-1")}>
+        <View style={tw("flex flex-row mb-8")}>
+          <View style={styles.directorImageFrame}>
+            <Image src={directorImage || "/placeholder.svg"} style={tw("w-24 h-32 object-cover rounded")} />
+          </View>
+          <View style={tw("flex-1 ml-4")}>
             <Text style={tw("text-base font-bold text-gray-900 mb-1")}>
               Mr. Amit Shah
             </Text>
@@ -148,11 +183,16 @@ export const CompanyDescriptionPage = () => {
                 {text}
               </Text>
             ))}
+            <View style={tw("flex flex-row mt-2")}>
+              <Text style={tw("text-[8px] text-amber-500 italic")}>
+                "Our vision is to make India the global epicenter of premium marble and stone products."
+              </Text>
+            </View>
           </View>
         </View>
 
         {/* Stats Section with modern styling */}
-        <View style={tw("mt-4 p-6 bg-white rounded shadow")}>
+        <View style={styles.statsBox}>
           <View style={tw("flex flex-row justify-between")}>
             <View style={tw("items-center")}>
               <Text style={tw("text-2xl font-bold text-amber-500 mb-1")}>500+</Text>
@@ -176,24 +216,34 @@ export const CompanyDescriptionPage = () => {
         </View>
         
         {/* Additional Company Facts */}
-        <View style={tw("mt-6 p-4 bg-amber-50 rounded")}>
-          <Text style={tw("text-sm font-bold text-gray-900 mb-2")}>Milestones & Achievements</Text>
-          <View style={tw("flex flex-row flex-wrap")}>
-            <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
-              <Text style={tw("text-xs text-amber-500 mr-1")}>•</Text>
-              <Text style={tw("text-xs text-gray-700")}>ISO 9001:2015 Certified</Text>
-            </View>
-            <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
-              <Text style={tw("text-xs text-amber-500 mr-1")}>•</Text>
-              <Text style={tw("text-xs text-gray-700")}>150M+ sq. ft. supplied</Text>
-            </View>
-            <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
-              <Text style={tw("text-xs text-amber-500 mr-1")}>•</Text>
-              <Text style={tw("text-xs text-gray-700")}>Launched KalingaStone in 2009</Text>
-            </View>
-            <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
-              <Text style={tw("text-xs text-amber-500 mr-1")}>•</Text>
-              <Text style={tw("text-xs text-gray-700")}>5 showrooms nationwide</Text>
+        <View style={tw("mt-6")}>
+          <View style={styles.achievementBox}>
+            <Text style={tw("text-sm font-bold text-gray-900 mb-3")}>Milestones & Achievements</Text>
+            <View style={tw("flex flex-row flex-wrap")}>
+              <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
+                <Text style={tw("w-3 text-xs text-amber-500 font-bold")}>•</Text>
+                <Text style={tw("text-xs text-gray-700")}>ISO 9001:2015 Certified</Text>
+              </View>
+              <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
+                <Text style={tw("w-3 text-xs text-amber-500 font-bold")}>•</Text>
+                <Text style={tw("text-xs text-gray-700")}>150M+ sq. ft. supplied</Text>
+              </View>
+              <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
+                <Text style={tw("w-3 text-xs text-amber-500 font-bold")}>•</Text>
+                <Text style={tw("text-xs text-gray-700")}>Launched KalingaStone in 2009</Text>
+              </View>
+              <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
+                <Text style={tw("w-3 text-xs text-amber-500 font-bold")}>•</Text>
+                <Text style={tw("text-xs text-gray-700")}>5 showrooms nationwide</Text>
+              </View>
+              <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
+                <Text style={tw("w-3 text-xs text-amber-500 font-bold")}>•</Text>
+                <Text style={tw("text-xs text-gray-700")}>Export to 67+ countries</Text>
+              </View>
+              <View style={tw("w-1/2 flex flex-row items-start mb-2")}>
+                <Text style={tw("w-3 text-xs text-amber-500 font-bold")}>•</Text>
+                <Text style={tw("text-xs text-gray-700")}>Industry Innovation Award 2023</Text>
+              </View>
             </View>
           </View>
         </View>
@@ -229,3 +279,4 @@ export const CompanyDescriptionPage = () => {
     </Page>
   )
 }
+
