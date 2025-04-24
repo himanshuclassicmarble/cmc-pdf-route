@@ -96,14 +96,10 @@ export interface CompanyInfo {
 }
 
 /**
- * High-quality image processor for PDF product images
- * Optimized for maximum visual quality while maintaining PDF compatibility
+ * Convert WebP image to PNG for better PDF compatibility
+ * This function handles the conversion with no compression
  */
-const processHighQualityProductImage = async (
-  url: string,
-  maxWidth = 2400, // Higher resolution limit
-  quality = 0.95   // Higher quality preservation
-): Promise<string> => {
+const convertWebPToPNG = async (url: string): Promise<string> => {
   // Skip processing for local/placeholder images
   if (url.startsWith("/") || url.includes("placeholder")) {
     return url
@@ -115,39 +111,25 @@ const processHighQualityProductImage = async (
       img.crossOrigin = "Anonymous"
 
       img.onload = () => {
-        // Use larger canvas for better quality
+        // Create canvas with original dimensions
         const canvas = document.createElement("canvas")
+        canvas.width = img.width
+        canvas.height = img.height
 
-        // Maintain original dimensions if possible, only scale down very large images
-        const scale = Math.min(maxWidth / img.width, 1)
-        canvas.width = Math.floor(img.width * scale)
-        canvas.height = Math.floor(img.height * scale)
-
-        // Get high-quality context
-        const ctx = canvas.getContext("2d", {
-          alpha: false,           // No alpha for PDF compatibility
-          willReadFrequently: false // Optimization hint for rendering
-        })
-
+        // Get context
+        const ctx = canvas.getContext("2d")
         if (!ctx) {
           console.warn("Canvas context not available, using original image")
           resolve(url)
           return
         }
 
-        // Maximize rendering quality
-        ctx.imageSmoothingEnabled = true
-        ctx.imageSmoothingQuality = "high"
-
-        // White background to prevent transparency issues
+        // Draw at full resolution
         ctx.fillStyle = "#FFFFFF"
         ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-        // Draw at highest quality
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
 
-        // Convert to high-quality JPEG
-        // JPEG offers best compression while maintaining quality for photographs
+        // Convert to PNG with full quality
         canvas.toBlob(
           (blob) => {
             if (!blob) {
@@ -156,13 +138,11 @@ const processHighQualityProductImage = async (
               return
             }
 
-            // Log size for debugging
-            console.log(`Processed image: ${(blob.size / (1024 * 1024)).toFixed(2)}MB`)
-
+            console.log(`Converted image size: ${(blob.size / (1024 * 1024)).toFixed(2)}MB`)
             resolve(URL.createObjectURL(blob))
           },
-          "image/jpeg",
-          quality // Using high quality setting
+          "image/png",
+          1.0 // Full quality
         )
       }
 
@@ -179,53 +159,6 @@ const processHighQualityProductImage = async (
   }
 }
 
-// Standard image compression for other images (like logos)
-const compressImage = async (url: string, maxWidth = 1200, quality = 0.8): Promise<string> => {
-  if (url.startsWith("/") || url.includes("placeholder")) {
-    return url
-  }
-
-  try {
-    return new Promise((resolve, reject) => {
-      const img = new window.Image()
-      img.crossOrigin = "Anonymous"
-
-      img.onload = () => {
-        const canvas = document.createElement("canvas")
-        const scale = Math.min(maxWidth / img.width, 1)
-        canvas.width = img.width * scale
-        canvas.height = img.height * scale
-
-        const ctx = canvas.getContext("2d")
-        if (!ctx) {
-          resolve(url)
-          return
-        }
-
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-
-        canvas.toBlob(
-          (blob) => {
-            if (!blob) {
-              resolve(url)
-              return
-            }
-            resolve(URL.createObjectURL(blob))
-          },
-          "image/jpeg",
-          quality,
-        )
-      }
-
-      img.onerror = () => resolve(url)
-      img.src = url
-    })
-  } catch (error) {
-    console.error("Image compression failed:", error)
-    return url
-  }
-}
-
 export const ProductPage = ({
   product,
   companyInfo,
@@ -235,9 +168,9 @@ export const ProductPage = ({
   companyInfo: CompanyInfo
   pageNumber: number
 }) => {
-  // State for optimized images
-  const [compressedProductImage, setCompressedProductImage] = useState<string>("")
-  const [compressedLogoImage, setCompressedLogoImage] = useState<string>("")
+  // State for processed images
+  const [processedProductImage, setProcessedProductImage] = useState<string>("")
+  const [processedLogoImage, setProcessedLogoImage] = useState<string>("")
 
   // Format date for display
   const currentDate = new Date().toLocaleDateString("en-US", {
@@ -252,39 +185,39 @@ export const ProductPage = ({
 
   // Process images on component mount
   useEffect(() => {
-    // Set initial values immediately for faster rendering
-    setCompressedProductImage(productImage)
-    setCompressedLogoImage(companyLogo)
+    // Set initial values immediately
+    setProcessedProductImage(productImage)
+    setProcessedLogoImage(companyLogo)
 
     if (typeof window !== "undefined") {
-      // Process product image with highest possible quality
-      processHighQualityProductImage(productImage, 2400, 0.95)
-        .then(highQualityImage => {
-          setCompressedProductImage(highQualityImage)
+      // Process product image - convert WebP to PNG if needed
+      convertWebPToPNG(productImage)
+        .then(convertedImage => {
+          setProcessedProductImage(convertedImage)
         })
         .catch(error => {
           console.error("Error processing product image:", error)
-          setCompressedProductImage(productImage)
+          setProcessedProductImage(productImage)
         })
 
-      // Process logo with standard compression
-      compressImage(companyLogo, 400, 0.9)
-        .then(compressedLogo => {
-          setCompressedLogoImage(compressedLogo)
+      // Process logo - convert WebP to PNG if needed
+      convertWebPToPNG(companyLogo)
+        .then(convertedLogo => {
+          setProcessedLogoImage(convertedLogo)
         })
         .catch(error => {
           console.error("Error processing logo:", error)
-          setCompressedLogoImage(companyLogo)
+          setProcessedLogoImage(companyLogo)
         })
     }
 
     // Cleanup function to prevent memory leaks
     return () => {
-      if (compressedProductImage && compressedProductImage.startsWith("blob:")) {
-        URL.revokeObjectURL(compressedProductImage)
+      if (processedProductImage && processedProductImage.startsWith("blob:")) {
+        URL.revokeObjectURL(processedProductImage)
       }
-      if (compressedLogoImage && compressedLogoImage.startsWith("blob:")) {
-        URL.revokeObjectURL(compressedLogoImage)
+      if (processedLogoImage && processedLogoImage.startsWith("blob:")) {
+        URL.revokeObjectURL(processedLogoImage)
       }
     }
   }, [productImage, companyLogo])
@@ -302,7 +235,7 @@ export const ProductPage = ({
       {/* Modern header with logo and date */}
       <View style={tw("flex flex-row justify-between items-center mb-12")}>
         <View style={tw("flex flex-row items-center")}>
-          <Image src={compressedLogoImage || "/placeholder.svg"} style={tw("w-40 h-14 object-contain")} cache={false} />
+          <Image src={processedLogoImage || "/placeholder.svg"} style={tw("w-40 h-14 object-contain")} />
           {companyInfo.established && (
             <Text style={tw("ml-4 text-xs text-muted font-light tracking-widest")}>
               SINCE {companyInfo.established}
@@ -328,17 +261,16 @@ export const ProductPage = ({
         </View>
       </View>
 
-      {/* Product image with modern artistic frame - HIGH QUALITY */}
+      {/* Product image with modern artistic frame */}
       <View style={[styles.imageContainer, tw("mb-12")]}>
         {/* Shadow effect */}
         <View style={styles.imageShadow} />
 
-        {/* Image with border - using highest quality image */}
+        {/* Image with border */}
         <View style={tw("border border-accent border-opacity-40")}>
           <Image
-            src={compressedProductImage || "/placeholder.svg"}
-            style={tw("w-full h-[600px] object-cover")}
-            cache={false}
+            src={processedProductImage || "/placeholder.svg"}
+            style={tw("w-full h-[400px] object-cover")}
           />
         </View>
 
